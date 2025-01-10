@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Video Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="progress.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    
+    <h1>Custom Video Player</h1>
+
+    <video src="Asset/Video.mp4" id="video" class="screen" poster="Asset/Image.png"></video>
+
+    <div class="controls">
+        <button class="btn" id="play"><i class="fa-solid fa-play fa-2x"></i></button>
+        
+        <button class="btn" id="stop"><i class="fa-solid fa-stop fa-2x"></i></button>
+
+        <input type="range" id="progress" class="progress" min="0" max="100" step="0.1" value="0">
+
+        <span class="timestamp" id="timestamp">00:00</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
