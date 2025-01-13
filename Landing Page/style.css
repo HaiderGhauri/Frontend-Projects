@@ -1,0 +1,187 @@
+:root{
+    --primary-color:#227093;
+    --secondary-color:#84817a;
+    --monal-duration:1s;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    transition: all 0.5s ease;
+}
+
+body.show-nav{
+    transform: translate(200px);
+}
+
+nav{
+    background-color: var(--primary-color);
+    border-right: 1px solid rgba(200, 200, 200, 0.1);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 200px;
+    height: 100vh;
+    transform: translateX(-100%);
+}
+
+nav .logo{
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav .logo i{
+    height: 70px;
+    width: 70px;
+}
+
+nav ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+nav ul li{
+    padding: 20px;
+    border-bottom: 1px solid rgba(200, 200, 200, 0.1);
+}
+
+nav ul li:first-of-type{
+    border-top: 1px solid rgba(200, 200, 200, 0.1);
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover{
+    text-decoration: underline;
+}
+
+header{
+    background-color: var(--primary-color);
+    color: white;
+    position: relative;
+    font-size: 150%;
+    text-align: center;
+    padding: 40px 15px;
+}
+
+header h1{
+    margin: 0;
+}
+
+header p{
+    margin: 30px 0;
+}
+
+button{
+    background-color: var(--secondary-color);
+    border: 0;
+    border-radius: 5px;cursor: pointer;
+    padding: 8px 10px;
+}
+
+button:focus{
+    outline: none;
+}
+
+.toggle{
+    background-color: rgba(0,0,0,0.3);
+    position: absolute;
+    color: white;
+    left: 20px;
+    top: 20px;
+}
+
+.cta-btn{
+    padding: 10px 30px;
+    font-size: 24px;
+}
+
+.container{
+    padding: 40px 20px;
+    margin: 0 auto;
+    max-width: 100%;
+    width: 800px;
+}
+
+.modal-container{
+    background-color: rgba(0,0,0,0.6);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+}
+.modal-container.show-modal{
+    display: block;
+}
+
+.modal{
+    background-color: white;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.6);
+    max-width: 100%;
+    width: 400px;
+    animation-name: modalOpen;
+    animation-duration: var(--monal-duration);
+}
+
+.modal-header{
+    background-color: var(--primary-color);
+    padding: 15px;
+    color: white;
+}
+
+.modal-header h3{
+    margin: 0;
+}
+
+.modal-content{
+    padding: 20px;
+}
+
+.modal-form div{
+    margin: 15px 0;
+}
+
+.modal-form label{
+    display: block;
+    margin-bottom: 6px;
+}
+
+.modal-form input{
+    padding: 10px;
+    width: 100%;
+}
+
+.close-btn{
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+}
+
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+

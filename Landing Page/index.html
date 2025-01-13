@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <i class="fa-brands fa-slack fa-3x"></i>
+        </div>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <button class="toggle" id="toggle">
+            <i class="fa-solid fa-bars fa-2x"></i>
+        </button>
+
+        <h1>My Landing Page</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim, sint!</p>
+
+        <button class="cta-btn" id="open">Sign Up</button>
+    </header>
+
+    <div class="container">
+        <h2>What is Axiom?</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis veniam excepturi numquam architecto? Facere
+            accusamus in inventore quisquam nam distinctio nisi pariatur, dignissimos optio ad!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse distinctio voluptatum et nemo iste fuga ullam
+            placeat blanditiis temporibus soluta?</p>
+
+        <h2>Learn More</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab ex excepturi repellendus vero laboriosam facilis
+            ullam adipisci dolorum, magnam tempora! Quae corporis perferendis consequuntur eaque, voluptatum deserunt
+            veniam. Praesentium accusantium unde dicta corporis!</p>
+
+        <h2>Projects</h2>
+        <ul>
+            <li>Project 1</li>
+            <li>Project 2</li>
+            <li>Project 3</li>
+            <li>Project 4</li>
+            <li>Project 5</li>
+        </ul>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis voluptatum possimus voluptate consequatur
+            sapiente numquam amet et voluptates omnis? Sed?</p>
+
+        <div class="modal-container" id="modal">
+            <div class="modal">
+
+                <button class="close-btn" id="close">
+                    <i class="fa-solid fa-xmark fa-2x"></i>
+                </button>
+                
+                <div class="modal-header">
+                    <h3>Sign Up</h3>
+                </div>
+
+                <div class="modal-content">
+                    <p>Register for classes</p>
+
+                    <form class="modal-form">
+                        <div>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="Enter Name">
+                        </div>
+
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Enter Email">
+                        </div>
+
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Enter Password">
+                        </div>
+
+                        <div>
+                            <label for="password2">Confirm Password</label>
+                            <input type="password" id="password2" placeholder="Enter Password Again">
+                        </div>
+
+                        <input type="submit" value="submit" class="submit-btn">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
