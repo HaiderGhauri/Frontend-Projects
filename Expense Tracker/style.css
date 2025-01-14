@@ -1,0 +1,132 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #34495e;
+    color: rgb(221, 215, 203);
+}
+
+.container{
+    margin: 30px auto;
+    width: 350px;
+}
+
+h1{
+    letter-spacing: 1.5px;
+    margin: 8px 0; 
+}
+
+h3{
+    margin: 40px 0 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+h4{
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.credit-debit-container{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    background-color: #555d66;
+}
+
+.credit-debit-container > div{
+    flex: 1;
+    text-align: center;
+}
+
+.credit-debit-container > div:first-of-type{
+    border-right: 1px solid black;
+}
+
+.money{
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    margin: 5px 0;
+}
+.money.credit{
+    color: #16a085;
+}
+.money.debit{
+    color: #d35400;
+}
+
+.list{
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+.list li{
+    background-color: #555d66;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.list li.credit{
+    border-right:8px solid #16a085;
+}
+.list li.debit{
+    border-right:8px solid #d35400;
+}
+
+.delete-btn{
+    cursor: pointer;
+    background-color: #e74c3c;
+    border: 0;
+    color: white;
+    font-size: 18px;
+    padding: 3px 5px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-100%, -50%);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.list li:hover .delete-btn{
+    opacity: 1;
+}
+
+label{
+    display: inline-block;
+    margin: 10px 0;
+}
+
+input{
+    display: block;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px 10px;
+    font-size: 18px;
+    width: 100%;
+}
+
+.btn{
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #216fa3;
+    color: white;
+    display: block;
+    font-size: 18px;
+    margin: 10px 0 30px;
+    padding: 8px 10px;
+    width: 100%;
+}
