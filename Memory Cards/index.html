@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Cards</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <h1> Memory Cards
+        <button id="add-card" class="btn btn-small">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+
+        <button id="clear-card" class="btn btn-small">
+            <i class="fa-solid fa-trash"></i>
+        </button>
+    </h1>
+
+    <div class="cards-container" id="cards-container">
+        <!-- <div class="card active">
+            <div class="inside-card">
+                <div class="card-front">
+                    <p>Question 1</p>
+                </div>
+
+                <div class="card-back">
+                    <p>Answer 1</p>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+    <div class="nav">
+        <button class="btn-nav" id="prev-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+        <p id="current-card">0 / 0</p>
+
+        <button class="btn-nav" id="next-btn">
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <div class="add-card-container" id="add-card-container">
+        <h1>Add New card
+            <button class="btn btn-small" id="cancel-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </h1>
+
+        <div class="add-card-form-group">
+            <label for="question">Question</label>
+            <textarea id="question" class="question-input" placeholder="Enter question here"></textarea>
+        </div>
+
+        <div class="add-card-form-group">
+            <label for="answer">Answer</label>
+            <textarea id="answer" class="question-input" placeholder="Enter answer here"></textarea>
+        </div>
+
+        <button class="btn" id="add-card-btn">
+            Add Card
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
