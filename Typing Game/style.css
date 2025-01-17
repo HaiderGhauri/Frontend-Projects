@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: "Roboto", serif;
+}
+
+button{
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.settings-btn{
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    transition: transform 0.3s ease;
+}
+.btn{
+    transition: transform 0.3s ease;
+}
+.settings-btn:active , .btn:active{
+    transform: scale(0.8);
+}
+
+.settings{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.3);
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transform: translateY(0);
+    transition: transform 0.5s ease-in-out;
+}
+.settings.hide{
+    transform: translateY(-100%);
+}
+
+select{
+    cursor: pointer;
+    width: 100px;
+    padding: 4px 5px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+
+.container{
+    position: relative;
+    background-color: #d2d2d2;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 500px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+}
+
+.container h2{
+    text-decoration: underline;
+}
+.container h1{
+    margin-top: 25px;
+}
+
+.container input{
+    border: 0;
+    border-radius: 5px;
+    width: 300px;
+    padding: 8px 10px;
+    margin-top: 12px;
+    font-size: 18px;
+}
+
+.scorecard{
+    position: absolute;
+    top: 0;
+    right: 20px;
+}
+
+.timer{
+    position: absolute;
+    top: 0;
+    left: 20px;
+}
+
+.gameover{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.8);
+    color: #d2d2d2;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+#word{
+    text-transform: capitalize;
+}
