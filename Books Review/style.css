@@ -70,7 +70,7 @@ button:active {
     align-items: center;
     justify-content: center;
     gap: 3rem;
-    margin: 5% auto;
+    margin: 110px auto 5% auto;
     z-index: 99;
 }
 
