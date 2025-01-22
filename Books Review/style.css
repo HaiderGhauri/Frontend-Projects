@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: #bda982a9; */
+    background-color: #c1baa171;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    height: 65px;
+    width: 100%;
+    background-color: #b3d4d8;
+    background-color: #D7D3BF;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-right: 2%;
+    z-index: 100;
+}
+
+.header .login,
+.header .add-book {
+    border: 0;
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-left: 1%;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #A59D84;
+    /* color: white; */
+}
+
+.add-book {
+    display: none;
+}
+
+.add-book.show-btn {
+    display: block;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(.95);
+}
+
+.header #logout {
+    display: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin: 5% auto;
+    z-index: 99;
+}
+
+.book {
+    background-color: #D7D3BF;
+    border-radius: 6px;
+    width: 340px;
+    position: relative;
+}
+
+.book img {
+    width: 100%;
+    height: 470px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.book-info {
+    padding: 12px;
+    padding-top: 0;
+}
+
+.book-info h3 {
+    margin: 0 0 12px;
+}
+
+.book-info input {
+    display: block;
+    padding: 6px 8px;
+    border: 0;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.book-info input:focus {
+    outline: 1px solid gray;
+}
+
+.book-info select,
+.edit-btn {
+    width: 45%;
+    margin-right: 8%;
+    margin-top: 12px;
+    border-radius: 6px;
+    border: 0;
+    padding: 4px 6px;
+}
+
+.book-info button {
+    width: 45%;
+    border-radius: 6px;
+    border: 0;
+    padding: 5px 6px;
+    cursor: pointer;
+    background-color: #A59D84;
+}
+
+.book .delete-book {
+    position: absolute;
+    top: 0;
+    padding: 4px 8px;
+    border-top-left-radius: 5px;
+    border: 0;
+    background-color: orangered;
+    color: white;
+}
+
+.login-container,
+.add-book-container {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.4s ease;
+}
+
+.login-container.show,
+.add-book-container.show {
+    opacity: 1;
+    z-index: 100;
+}
+
+.login-form,
+.add-book-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    width: 330px;
+    padding: 20px;
+    box-shadow: 0 0 40px black;
+    border-radius: 8px;
+    background-color: wheat;
+}
+
+.login-form h1,
+.add-book-form h1 {
+    text-align: center;
+    margin: 25px 0 33px;
+    color: white;
+    text-shadow: 2px 8px 18px black;
+}
+
+
+.login-form label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 7px;
+    font-weight: 550;
+}
+
+.login-form input {
+    padding: 15px 8px;
+    border: none;
+    outline: none;
+    background: none;
+    width: 97%;
+}
+
+.password,
+.username {
+    background-color: #f4f3f367;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+.login-form .password input {
+    width: 86%;
+    margin: 0;
+}
+
+.login-form .password i {
+    padding-right: 4px;
+    cursor: pointer;
+}
+
+.login-form button {
+    font-size: 20px;
+    padding: 15px 0;
+    border: none;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+}
+
+.close:active {
+    transform: scale(.95);
+}
+
+.add-book-form label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 7px;
+    font-weight: 550;
+}
+
+.add-book-form input {
+    padding: 15px 8px;
+    border: none;
+    outline: none;
+    background: none;
+    width: 97%;
+}
+
+.book-iamge-div,
+.book-title-div {
+    background-color: #f4f3f367;
+    margin-bottom: 25px;
+    border-radius: 8px;
+}
+
+.add-book-form button {
+    font-size: 20px;
+    padding: 15px 0;
+    border: none;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+@media (max-width:750px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}

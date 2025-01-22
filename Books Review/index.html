@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Review</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Page Header contain login, logout & add book btn -->
+    <header class="header" id="header">
+        <button class="add-book" id="add-book">Add Book</button>
+        <button class="btn login" id="login">Login</button>
+        <button class="btn login" id="logout" onclick="adminlogout()">Logout</button>
+    </header>
+
+    <!-- Books container initially empty in the html -->
+    <div class="container" id="container">
+        <!-- <div class="book">
+            <img src="Image/a tale of two cities.jpg" alt="">
+            <div class="book-info">
+                <h3 class="title">A Tale of Two Cities</h3>
+                <input type="text" class="review" placeholder="Write your review here">
+                <select id="">
+                    <option value="">Rate this book</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button class="btn add-review">Add Review</button>
+            </div>
+        </div>-->
+    </div>
+
+    <!-- Login form for admin only -->
+    <div class="login-container" id="login-container">
+        <form class="login-form" id="login-form">
+            <i class="fa-solid fa-times close" id="close"></i>
+            <h1>Login</h1>
+
+            <label for="username">Username</label>
+            <div class="username">
+                <input type="text" id="username" placeholder="Enter your username" autocomplete="off">
+            </div>
+
+            <label for="password">Password</label>
+            <div class="password">
+                <input type="password" id="password" placeholder="Enter your password">
+                <i class="fa-solid fa-eye-slash" id="eyeicon" onclick="showHidePassword()"></i>
+            </div>
+
+            <button id="loginbtn" onclick="adminlogin()">Login</button>
+        </form>
+    </div>
+
+    <!-- Add book form for admin only -->
+    <div class="add-book-container" id="add-book-container">
+        <form class="add-book-form" id="add-book-form">
+            <i class="fa-solid fa-times close" id="close-add-book"></i>
+            <h1>Add Book</h1>
+
+            <label for="book-iamge">Book Image</label>
+            <div class="book-iamge-div">
+                <input type="file" id="book-image" placeholder="Upload image" accept="jpg">
+            </div>
+
+            <label for="book-title">Book Title</label>
+            <div class="book-title-div">
+                <input type="text" id="book-title" placeholder="Enter book title">
+            </div>
+
+            <button id="add-book-btn" onclick="addBook()">Add Book</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
