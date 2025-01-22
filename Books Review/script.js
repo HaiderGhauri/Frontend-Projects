@@ -243,10 +243,6 @@ function addBook() {
     console.log("Image File:", imageFile);
 
     if (title && imageFile) {
-        // if (imageFile.type !== 'image/jpg') {
-        //     alert('Please upload a jpg image only.')
-        //     return;
-        // }
 
         const imageFileName = imageFile.name;
         const newBook = {
@@ -258,7 +254,7 @@ function addBook() {
 
         localStorage.setItem('books', JSON.stringify(books));
         renderBooks();
-    } else{
+    } else {
         alert('Please provide valid details')
     }
 
