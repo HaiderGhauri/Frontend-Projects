@@ -80,3 +80,107 @@ This project is a simple landing page with the following features:
 - **Close Signup Form:** The signup form can be closed by clicking the cross button on the form.
 - **Hamburger Menu:** A hamburger menu is positioned on the left. Clicking the hamburger icon opens a side navigation menu.
 - **Toggle Navigation:** Clicking the hamburger icon again closes the side navigation menu.
+
+## 7. Hangman Game
+This is a Hangman game where users have to guess a word by selecting letters.
+
+### Features:
+- **Guessing the Word:** The user must guess a word by selecting letters. Incorrect guesses reveal parts of the hangman figure.
+- **Hangman Parts:** Each wrong guess adds a new part to the hangman figure (e.g., head, body, arms, legs).
+- **Already Guessed Letters:** If the user guesses a letter that has already been guessed, a popup appears with the message "You have already guessed this letter."
+
+## 9. Expense Tracker
+This project allows users to track their expenses by adding transactions with descriptions and amounts.
+
+### Features:
+- **Transaction Description and Amount:** Users can add a transaction description and an amount (either positive or negative).
+- **Transaction Types:** 
+  - If the amount is positive, it is added to the "credit" balance.
+  - If the amount is negative, it is added to the "debit" balance.
+- **Balance Display:** The current balance is displayed at the top.
+- **Transaction Deletion:** Users can delete any transaction that they no longer wish to track.
+
+## 10. Music Player
+A music player with the following features:
+
+### Features:
+- **Play/Pause Button:** Clicking the play button starts the music and turns it into a pause button. Clicking the pause button stops the music.
+- **Previous and Next Buttons:** These buttons allow users to navigate through different tracks.
+- **Title and Progress Bar:** When the music is playing, the track title and progress bar are displayed and updated in real-time.
+- **Rotating Image:** While the music is playing, the album image rotates.
+
+## 11. News Feed Website
+A news feed website where random posts are fetched from an API and displayed.
+
+### Features:
+- **Initial Post Load:** The website loads 5 random posts from the API initially.
+- **Scroll to Load More:** When the user scrolls to the bottom of the page, 5 more posts are fetched and displayed.
+- **Search Bar:** At the top of the page, a search bar allows users to filter posts by keywords. Only posts that match the keyword will be displayed.
+
+## 12. Typing Game
+A typing game where users are given a word to type, and their score increases for each correct word typed.
+
+### Features:
+- **Word Display:** A word is displayed for the user to type within a time limit of 10 seconds.
+- **Difficulty Levels:** The game has three difficulty levels:
+  - **Easy Mode:** Adds 5 seconds to the timer for each correct word typed.
+  - **Medium Mode:** Adds 4 seconds to the timer for each correct word typed.
+  - **Hard Mode:** Adds 3 seconds to the timer for each correct word typed.
+- **Score:** The score increases for every correct word typed within the time limit.
+- **Local Storage:** The selected difficulty is saved in local storage.
+- **Time Up Popup:** When the time runs out, a popup appears showing the user's score, with a "Play Again" button.
+
+## 13. Memory Card Game
+This project is a memory card game where users can add, view, and delete cards containing questions and answers.
+
+### Features:
+- **Add Card:** A plus icon opens a form where users can input a question and an answer. Clicking the "Add" button adds the card to the game.
+- **Card Flip:** Clicking on a card flips it to reveal the answer.
+- **Delete Card:** A delete icon next to the plus icon allows users to delete cards.
+- **Local Storage:** The cards are saved to local storage, so they persist even after the page is reloaded.
+
+## 14. Web Speech
+This project uses the Web Speech API to read aloud text when interacting with images or custom input.
+
+### Features:
+- **Image and Text:** Initially, there are several images with corresponding text. When the user clicks on an image, the text is read aloud.
+- **Custom Text:** A button opens a form where users can type their own text. Once entered, clicking the "Read Custom Text" button will read the typed text aloud.
+
+## 15. Search Lyrics
+This project allows users to search for song lyrics based on song or artist names.
+
+### Features:
+- **Search Box:** Users can type a song name or artist name to search for related results.
+- **Pagination:** If the search returns more than 15 results, only the first 15 are shown. There is a "Next" button to show the next 15 results and a "Previous" button to go back.
+- **Get Lyrics:** Each song has a "Get Lyrics" button. When clicked, it shows the lyrics of that song.
+
+## 16. Book Review Website
+This project allows users to leave reviews and ratings for books. Admin users have additional privileges to manage the books and reviews.
+
+### Features:
+- **Book Display:** Some books are displayed with an input field for users to add reviews and a select box for rating the books.
+- **Add Review:** Users can add a review for a book, and if the values are invalid, an alert is shown.
+- **Edit Review:** After a review is added, it can be edited by clicking the "Edit Review" button. A prompt will appear for the review and rating, and the updated review will be saved.
+- **Local Storage:** All reviews and ratings are saved in local storage.
+- **Login and Admin Access:** There is a login button in the header that opens a login form. The admin credentials are hardcoded in the code. If the admin logs in successfully, the admin view is opened.
+- **Admin Actions:** Admin can delete books and reviews, and a "Logout" button is available. The admin can also add new books by selecting a file and entering a book title.
+- **Delete Actions:** Each book and review has a delete button that removes the respective item when clicked. When logged out, the admin credentials are removed from local storage.
+
+## 8. Meal Generator
+This project allows users to search for meals and view detailed information about each meal.
+
+### Features:
+- **Search Bar:** Users can input keywords in the search bar, and meals related to the keyword are displayed.
+- **Meal Details:** Clicking on a meal's image will show detailed information about that meal, including:
+  - The meal's name
+  - Meal image
+  - Category
+  - Region
+  - Instructions for preparation
+  - Ingredients and measurements
+- **Random Meal Generator:** A button allows users to generate a random meal. When clicked, a random meal is displayed.
+- **API Data:** All meal information is fetched from an API.
+
+
+
+
