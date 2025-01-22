@@ -13,14 +13,34 @@
             background: linear-gradient(to right, #a18cd1, #fbc2eb);
         }
         ul{
-            list-style: none;
+            list-style: decimal;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
         }
         a{
             text-decoration: none;
-            color: white;
+            color: rgb(70, 52, 52);
+            font-weight: 550;
         }
         li{
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid gray;
+        }
+
+        @media (max-width:1250px){
+            ul{
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width:850px){
+            ul{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width:490px){
+            ul{
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
     </style>
 </head>
