@@ -89,6 +89,21 @@ This is a Hangman game where users have to guess a word by selecting letters.
 - **Hangman Parts:** Each wrong guess adds a new part to the hangman figure (e.g., head, body, arms, legs).
 - **Already Guessed Letters:** If the user guesses a letter that has already been guessed, a popup appears with the message "You have already guessed this letter."
 
+## 8. Meal Generator
+This project allows users to search for meals and view detailed information about each meal.
+
+### Features:
+- **Search Bar:** Users can input keywords in the search bar, and meals related to the keyword are displayed.
+- **Meal Details:** Clicking on a meal's image will show detailed information about that meal, including:
+  - The meal's name
+  - Meal image
+  - Category
+  - Region
+  - Instructions for preparation
+  - Ingredients and measurements
+- **Random Meal Generator:** A button allows users to generate a random meal. When clicked, a random meal is displayed.
+- **API Data:** All meal information is fetched from an API.
+
 ## 9. Expense Tracker
 This project allows users to track their expenses by adding transactions with descriptions and amounts.
 
@@ -166,20 +181,6 @@ This project allows users to leave reviews and ratings for books. Admin users ha
 - **Admin Actions:** Admin can delete books and reviews, and a "Logout" button is available. The admin can also add new books by selecting a file and entering a book title.
 - **Delete Actions:** Each book and review has a delete button that removes the respective item when clicked. When logged out, the admin credentials are removed from local storage.
 
-## 8. Meal Generator
-This project allows users to search for meals and view detailed information about each meal.
-
-### Features:
-- **Search Bar:** Users can input keywords in the search bar, and meals related to the keyword are displayed.
-- **Meal Details:** Clicking on a meal's image will show detailed information about that meal, including:
-  - The meal's name
-  - Meal image
-  - Category
-  - Region
-  - Instructions for preparation
-  - Ingredients and measurements
-- **Random Meal Generator:** A button allows users to generate a random meal. When clicked, a random meal is displayed.
-- **API Data:** All meal information is fetched from an API.
 
 
 
