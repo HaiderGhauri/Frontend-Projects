@@ -260,6 +260,10 @@ button:active {
     border-radius: 8px;
     cursor: pointer;
 }
+.review-text{
+    max-width: 90%;
+    overflow-wrap: anywhere;
+}
 
 @media (max-width:750px) {
     .container {

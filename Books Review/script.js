@@ -16,7 +16,7 @@ const closeAddBookBtn = document.getElementById('close-add-book');
 const bookImage = document.getElementById('book-image');
 const bookTitle = document.getElementById('book-title')
 
-// Make and books array whcih contain the object of every book 
+// Make an books array which contains the object of every book 
 const books = [
     {
         id: 1, img: './Image/to kill a mockingbird.jpg', title: 'To Kill a Mockingbird', reviews: []
@@ -112,14 +112,17 @@ function renderBooks() {
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
-                <button class="btn add-review" onclick="addReview(${bookIndex})">Add Review</button>
+                ${!isAdminLoggedIn() ?
+                ` <button class="btn add-review" onclick="addReview(${bookIndex})">Add Review</button>` : ""}
+               
 
-                <div id="review-container${bookIndex}">
+                <div class="review-container" id="review-container${bookIndex}">
                     ${book.reviews
                 .map((review, reviewIndex) =>
                     `<div class="review">
-                                <p><strong>Rating:</strong> ${review.rating} Star(s) <br> <strong>Review:</strong> ${review.text}</p>
-                                <button class="edit-btn" onclick="editReview(${bookIndex}, ${reviewIndex})">Edit</button>
+                                <p class="review-text"><strong>Rating:</strong> ${review.rating} Star(s) <br> <strong>Review:</strong> ${review.text}</p>
+                                 ${!isAdminLoggedIn() ? `<button class="edit-btn" onclick="editReview(${bookIndex}, ${reviewIndex})">Edit</button>` : ""}
+                            
                                 ${isAdminLoggedIn() ?
                         `<button class="btn delete-review" onclick="deleteReview(${bookIndex}, ${reviewIndex})">Delete review</button>` : ""}
                             </div>`
@@ -236,11 +239,9 @@ function deleteBook(bookIndex) {
 
 // Function to add the book only for admin
 function addBook() {
-    console.log("addBook function called");
+
     const title = bookTitle.value;
     const imageFile = bookImage.files[0];
-    console.log("Book Title:", title);
-    console.log("Image File:", imageFile);
 
     if (title && imageFile) {
 
@@ -262,7 +263,6 @@ function addBook() {
 
 // Function to delete the review only for admin
 function deleteReview(bookIndex, reviewIndex) {
-    console.log("Reviews for book:", bookIndex, books.reviews);
 
     const confirmDelete = confirm("Are you sure you want to delete this review?");
     if (confirmDelete) {
