@@ -4,12 +4,21 @@
     box-sizing: border-box;
 }
 
+:root {
+    --background: #cfd8dc;
+    --card: #b0bec5;
+    --button: #78909c;
+    --formbg: #607d8b;
+}
+
 body {
     font-family: "Poppins", serif;
     margin: 0;
     padding: 0;
     /* background-color: #bda982a9; */
-    background-color: #c1baa171;
+    /* background-color: #c1baa171; */
+    background: linear-gradient(to bottom right, #eceff1, #cfd8dc);
+    color: #263238;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -23,8 +32,8 @@ body {
     top: 0;
     height: 65px;
     width: 100%;
-    background-color: #b3d4d8;
-    background-color: #D7D3BF;
+    /* background-color: #D7D3BF; */
+    background-color: var(--card);
     display: flex;
     align-items: center;
     justify-content: right;
@@ -40,8 +49,9 @@ body {
     margin-left: 1%;
     font-size: 16px;
     cursor: pointer;
-    background-color: #A59D84;
-    /* color: white; */
+    /* background-color: #A59D84; */
+    background-color: var(--button);
+    font-weight: bold;
 }
 
 .add-book {
@@ -66,24 +76,59 @@ button:active {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     justify-content: center;
     gap: 3rem;
-    margin: 110px auto 5% auto;
+    margin: 130px auto 5% auto;
     z-index: 99;
 }
 
 .book {
-    background-color: #D7D3BF;
+    /* background-color: #D7D3BF; */
+    background-color: var(--card);
     border-radius: 6px;
     width: 340px;
+    max-height: 650px;
     position: relative;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.review-container {
+    max-height: 90px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f0f0f0;
+    scroll-behavior: smooth;
+    margin: 5px 0;
+}
+
+.review-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.review-container::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+
+.review-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+
+.review-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .book img {
     width: 100%;
-    height: 470px;
+    height: 410px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
 }
@@ -91,6 +136,7 @@ button:active {
 .book-info {
     padding: 12px;
     padding-top: 0;
+    flex: 1;
 }
 
 .book-info h3 {
@@ -125,7 +171,8 @@ button:active {
     border: 0;
     padding: 5px 6px;
     cursor: pointer;
-    background-color: #A59D84;
+    /* background-color: #A59D84; */
+    background-color: var(--button);
 }
 
 .book .delete-book {
@@ -148,7 +195,7 @@ button:active {
     right: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    transition: opacity 0.4s ease;
+    transition: opacity 0.4s ease-in;
 }
 
 .login-container.show,
@@ -169,6 +216,7 @@ button:active {
     box-shadow: 0 0 40px black;
     border-radius: 8px;
     background-color: wheat;
+    background-color: var(--formbg);
 }
 
 .login-form h1,
@@ -260,13 +308,68 @@ button:active {
     border-radius: 8px;
     cursor: pointer;
 }
-.review-text{
+
+.review-text {
     max-width: 90%;
     overflow-wrap: anywhere;
+}
+
+.review p {
+    margin: 0;
+}
+
+.edit-review-text {
+    margin-top: 8px;
+}
+
+.star {
+    font-size: 20px;
+    color: gray;
+    cursor: pointer;
+}
+
+.star.filled {
+    color: rgb(255, 136, 0);
+}
+.review-container .star{
+    cursor: default;
+}
+
+.scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--button);
+    color: white;
+    padding: 9px 10px;
+    font-size: 18px;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    z-index: 99;
+}
+
+@media (max-width:1150px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 110px auto 5% auto;
+    }
+
+    .scroll-top {
+        bottom: 15px;
+        right: 15px;
+    }
 }
 
 @media (max-width:750px) {
     .container {
         grid-template-columns: 1fr;
+        margin: 100px auto 5% auto;
+    }
+
+    .scroll-top {
+        bottom: 15px;
+        right: 8px;
     }
 }

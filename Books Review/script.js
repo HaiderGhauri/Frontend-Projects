@@ -14,7 +14,9 @@ const addBookContainer = document.getElementById('add-book-container');
 const addBookForm = document.getElementById('add-book-form');
 const closeAddBookBtn = document.getElementById('close-add-book');
 const bookImage = document.getElementById('book-image');
-const bookTitle = document.getElementById('book-title')
+const bookTitle = document.getElementById('book-title');
+const scrollTop = document.getElementById('scroll-top');
+const bookDiv = document.querySelectorAll('.book');
 
 // Make an books array which contains the object of every book 
 const books = [
@@ -98,34 +100,45 @@ function renderBooks() {
     books.forEach((book, bookIndex) => {
         const bookDiv = document.createElement('div');
         bookDiv.classList.add('book');
+        bookDiv.setAttribute("data-aos", "zoom-in");
+        bookDiv.setAttribute("data-aos-duration", "900");
+        bookDiv.setAttribute("data-aos-delay", "200");
 
         bookDiv.innerHTML = `
             <img src="${book.img}" alt="${book.title}">
             <div class="book-info">
                 <h3 class="title">${book.title}</h3>
-                <input type="text" class="review" id="review-${bookIndex}" placeholder="Write your review here">
-                <select id="rating-${bookIndex}">
-                    <option value="">Rate this book</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
+                ${isAdminLoggedIn() ? `
+                     <input type="text" class="review" id="review-${bookIndex}" placeholder="Write your review here" disabled>
+                ` :
+                    ` <input type="text" class="review" id="review-${bookIndex}"         placeholder="Write your review here">
+                `}
+                <div class="rating" id="rating-${bookIndex}">
+                    <span class="star" data-value="1" style="${isAdminLoggedIn() ? 'pointer-events: none; color: gray;' : ''}">&#9734;</span>
+
+                    <span class="star" data-value="2" style="${isAdminLoggedIn() ? 'pointer-events: none; color: gray;' : ''}">&#9734;</span>
+
+                    <span class="star" data-value="3" style="${isAdminLoggedIn() ? 'pointer-events: none; color: gray;' : ''}">&#9734;</span>
+
+                    <span class="star" data-value="4" style="${isAdminLoggedIn() ? 'pointer-events: none; color: gray;' : ''}">&#9734;</span>
+
+                    <span class="star" data-value="5" style="${isAdminLoggedIn() ? 'pointer-events: none; color: gray;' : ''}">&#9734;</span>
+                </div>
                 ${!isAdminLoggedIn() ?
                 ` <button class="btn add-review" onclick="addReview(${bookIndex})">Add Review</button>` : ""}
-               
-
                 <div class="review-container" id="review-container${bookIndex}">
                     ${book.reviews
                 .map((review, reviewIndex) =>
                     `<div class="review">
-                                <p class="review-text"><strong>Rating:</strong> ${review.rating} Star(s) <br> <strong>Review:</strong> ${review.text}</p>
-                                 ${!isAdminLoggedIn() ? `<button class="edit-btn" onclick="editReview(${bookIndex}, ${reviewIndex})">Edit</button>` : ""}
+                            <p><strong>Rating:</strong> ${generateStars(review.rating)}</p>
                             
-                                ${isAdminLoggedIn() ?
+                            <p class="review-text" id="review-text-${bookIndex}-${reviewIndex}" ><strong>Review:</strong> ${review.text}</p>
+
+                            ${!isAdminLoggedIn() ? `<button class="edit-btn"  onclick="editReview(${bookIndex}, ${reviewIndex})">Edit</button>` : ""}
+                            
+                            ${isAdminLoggedIn() ?
                         `<button class="btn delete-review" onclick="deleteReview(${bookIndex}, ${reviewIndex})">Delete review</button>` : ""}
-                            </div>`
+                    </div>`
                 ).join("")
             }
                 </div>
@@ -135,7 +148,45 @@ function renderBooks() {
         `;
 
         container.appendChild(bookDiv)
+
+        // Initialize the rating stars for each book
+        const ratingElementId = `rating-${bookIndex}`;
+        initializeRating(bookIndex, ratingElementId);
     })
+};
+
+function initializeRating(bookIndex, ratingElementId) {
+    const ratingElement = document.querySelector(`#${ratingElementId}`);
+    const stars = document.querySelectorAll(`#${ratingElementId} .star`);
+
+   
+    const selectedRating = parseInt(ratingElement.getAttribute('data-selected')) || 0;
+    stars.forEach((star, index) => {
+        star.addEventListener('click', () => {
+            stars.forEach(s => s.classList.remove('filled'));
+
+            for (let i = 0; i <= index; i++) {
+                stars[i].classList.add('filled');
+            }
+           
+            ratingElement.setAttribute('data-selected', index + 1);
+        });
+    });
+};
+
+// Helper function to generate star ratings
+function generateStars(rating) {
+    const totalStars = 5; 
+    let starsHTML = "";
+
+    for (let i = 1; i <= totalStars; i++) {
+        if (i <= rating) {
+            starsHTML += `<span class="star filled">&#9733;</span>`;
+        } else {
+            starsHTML += `<span class="star">&#9734;</span>`; 
+        }
+    }
+    return starsHTML;
 };
 
 // Function to addreview in the DOM using input and select element value
@@ -143,10 +194,10 @@ function addReview(index) {
     const reviewInput = document.getElementById(`review-${index}`);
     const reviewText = reviewInput.value;
 
-    const ratingInput = document.getElementById(`rating-${index}`);
-    const rating = ratingInput.value;
+    const ratingElement = document.querySelector(`#rating-${index}`);
+    const rating = parseInt(ratingElement.getAttribute('data-selected')) || 0;
 
-    if (reviewText.trim() === "" || rating === "") {
+    if (reviewText.trim() === "" || rating === 0) {
         alert('Please provide valid review & rating');
         return
     }
@@ -155,29 +206,61 @@ function addReview(index) {
 
     localStorage.setItem("books", JSON.stringify(books));
 
+    bookDiv.forEach(div => {
+        div.removeAttribute('data-aos');
+    });
+
     renderBooks();
 
     reviewInput.value = "";
-    ratingInput.value = "";
+    // ratingInput.value = "";
+    ratingElement.removeAttribute('data-selected');
+
 };
 
-// Function to editreview using prompt
 function editReview(bookIndex, reviewIndex) {
     const review = books[bookIndex].reviews[reviewIndex];
-    const newReviewText = prompt("Edit your review", review.text);
-    const newRating = prompt("Edit your ratings (1 - 5)", review.rating);
+    const reviewTextElement = document.getElementById(`review-text-${bookIndex}-${reviewIndex}`);
 
-    if (newReviewText.trim() === "" || isNaN(newRating) || newRating < 1 || newRating > 5) {
-        alert('Please provide valid review & rating');
+    const editHTML = `
+        <input type="text" class="edit-review-text" id="edit-review-text-${bookIndex}-${reviewIndex}" value="${review.text}"/>
+        <div class="rating" id="edit-rating-${bookIndex}-${reviewIndex}">
+            <span class="star" data-value="1">&#9734;</span>
+            <span class="star" data-value="2">&#9734;</span>
+            <span class="star" data-value="3">&#9734;</span>
+            <span class="star" data-value="4">&#9734;</span>
+            <span class="star" data-value="5">&#9734;</span>
+        </div>
+        <button class="btn save-btn" onclick="saveEditedReview(${bookIndex}, ${reviewIndex})">Save</button>
+        <button class="btn cancel-btn" onclick="renderBooks()">Cancel</button>
+    `;
+
+    reviewTextElement.parentElement.innerHTML = editHTML;
+
+    // Initialize the rating stars for the edit form
+    const ratingElementId = `edit-rating-${bookIndex}-${reviewIndex}`;
+    initializeRating(bookIndex, ratingElementId);
+};
+
+function saveEditedReview(bookIndex, reviewIndex) {
+    const reviewInput = document.getElementById(`edit-review-text-${bookIndex}-${reviewIndex}`);
+    const reviewText = reviewInput.value;
+
+    const ratingElement = document.querySelector(`#edit-rating-${bookIndex}-${reviewIndex}`);
+    const rating = parseInt(ratingElement.getAttribute('data-selected')) || 0;
+
+    if (reviewText.trim() === "" || rating === 0) {
+        alert('Please provide a valid review & rating');
         return;
     }
 
-    books[bookIndex].reviews[reviewIndex] = { text: newReviewText, rating: newRating };
+    books[bookIndex].reviews[reviewIndex] = { text: reviewText, rating };
 
     localStorage.setItem("books", JSON.stringify(books));
 
     renderBooks();
 };
+
 
 // Store the value of admin credentials in const variable
 const adminUsername = "admin";
@@ -318,3 +401,10 @@ if (isAdminLoggedIn()) {
 window.onload = function () {
     loadBooks();
 };
+
+scrollTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    })
+}) 
